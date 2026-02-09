@@ -11,7 +11,8 @@ defmodule CatEx.MixProject do
       name: "CatEx",
       source_url: "https://github.com/lulucatdev/cat_ex",
       homepage_url: "https://github.com/lulucatdev/cat_ex",
-      description: "Computer Adaptive Testing (CAT) library for Elixir - a complete port of jsCAT",
+      description:
+        "Computer Adaptive Testing (CAT) library for Elixir - a complete port of jsCAT",
       package: package(),
       start_permanent: Mix.env() == :prod,
       deps: deps(),
