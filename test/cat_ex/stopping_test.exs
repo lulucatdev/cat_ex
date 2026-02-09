@@ -3,7 +3,6 @@ defmodule CatEx.StoppingTest do
   doctest CatEx.Stopping
 
   alias CatEx.Stopping
-  alias CatEx.CAT
 
   defmodule MockCat do
     defstruct [:n_items, :se_measurement]
@@ -277,7 +276,7 @@ defmodule CatEx.StoppingTest do
         cat1: %MockCat{n_items: 3, se_measurement: 0.99}
       }
 
-      stopping = Stopping.StopOnSEPlateau.update(stopping, cats)
+      _stopping = Stopping.StopOnSEPlateau.update(stopping, cats)
 
       # 0.99 is within 0.01 of mean (10 + 1 + 0.99) / 3 = 3.996
       # mean of last 3: (10 + 1 + 0.99) / 3 = 3.996... wait that's not right

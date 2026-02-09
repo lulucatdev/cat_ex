@@ -3,14 +3,6 @@ defmodule CatEx.CATTest do
   doctest CatEx.CAT
 
   alias CatEx.CAT
-  alias CatEx.Corpus
-
-  # Helper to convert zeta based on format
-  defp convert_zeta(zeta, :symbolic), do: zeta
-
-  defp convert_zeta(zeta, :semantic) do
-    Corpus.convert_zeta(zeta, :semantic)
-  end
 
   describe "CAT basic functionality" do
     test "creates new CAT with default values" do

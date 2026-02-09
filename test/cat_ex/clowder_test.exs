@@ -3,11 +3,7 @@ defmodule CatEx.ClowderTest do
   doctest CatEx.Clowder
 
   alias CatEx.Clowder
-  alias CatEx.CAT
   alias CatEx.Stopping
-
-  # Helper functions
-  defp create_stimulus(id), do: %{id: id, content: "Content #{id}"}
 
   defp create_multi_zeta_stimulus(id, zetas) do
     %{
@@ -211,7 +207,7 @@ defmodule CatEx.ClowderTest do
     end
 
     test "selects item not yet seen", %{clowder: clowder} do
-      {clowder, next_item} =
+      {_clowder, next_item} =
         Clowder.update_and_select(clowder,
           cat_to_select: :cat2,
           cats_to_update: [:cat1, :cat2],
@@ -268,7 +264,7 @@ defmodule CatEx.ClowderTest do
       assert clowder.cats.cat1.theta != original_theta
     end
 
-    test "allows selecting from different corpus", %{clowder: clowder} do
+    test "allows selecting from different corpus", %{clowder: _clowder} do
       clowder =
         Clowder.new(
           cats: %{
@@ -321,7 +317,7 @@ defmodule CatEx.ClowderTest do
                "No validated items remaining for the requested corpus cat1"
     end
 
-    test "returns undefined when no validated items remain", %{clowder: clowder} do
+    test "returns undefined when no validated items remain", %{clowder: _clowder} do
       clowder =
         Clowder.new(
           cats: %{cat1: [method: "MLE", theta: 0.5]},
@@ -369,7 +365,7 @@ defmodule CatEx.ClowderTest do
       # Draw multiple times to test randomness
       results =
         for _ <- 1..20 do
-          {clowder, next_item} =
+          {_clowder, next_item} =
             Clowder.update_and_select(clowder,
               cat_to_select: :unvalidated
             )
